@@ -3,6 +3,10 @@ const express = require("express")
 const app = express();
 app.use(express.json());
 
+// Required to allow browser to load resources from different origin
+var cors = require('cors');
+app.use(cors());
+
 // Create routes for CRUD operations on the 3 tables
 const cliniciansRouter = require('./routes/clinicians');
 const patientsRouter = require('./routes/patients');

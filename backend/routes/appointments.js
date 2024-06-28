@@ -43,7 +43,8 @@ appointment_router.get('/name', (_, res) => {
                             time, status, notes 
                        FROM appointments 
                        JOIN patients p ON patient_id = p.id
-                       JOIN clinicians c ON clinician_id = c.id`;
+                       JOIN clinicians c ON clinician_id = c.id
+                       ORDER BY appointments.id DESC`;
         res.json(db.prepare(query).all());
     } catch (err) {
         console.error(err);
