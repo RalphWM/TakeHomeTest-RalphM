@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 // Required to allow browser to load resources from different origin
-var cors = require('cors');
+const cors = require('cors');
 app.use(cors());
 
 // Create routes for CRUD operations on the 3 tables
@@ -14,11 +14,6 @@ const appointmentsRouter = require('./routes/appointments');
 app.use('/clinicians', cliniciansRouter);
 app.use('/patients', patientsRouter);
 app.use('/appointments', appointmentsRouter);
-
-app.get('/', (req, res) => {
-    res.json({message: 'alive'});
-  });
-  
 
 // Start listening on port 5001
 const PORT = process.env.PORT || 5001;
